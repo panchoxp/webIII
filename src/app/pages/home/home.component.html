@@ -1,41 +1,92 @@
- <section class="hero">
-        <div class="hero-text">
-            <h2>Bienvenido a MiTienda</h2>
-            <p>Encuentra los mejores productos al mejor precio</p>
-            <a href="#" class="btn">Comprar Ahora</a>
-        </div>
-    </section>
-
-    <section class="products">
-        <h2>Productos Destacados</h2>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="https://www.amazon.com/-/es/b/ref=s9_bw_cg_sfEScats_2c1_w?node=21217034011&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-4&pf_rd_r=XKB44AM2S2KHNGQPDPSX&pf_rd_t=101&pf_rd_p=cb9bd281-2011-4f8c-8e1a-003edb1884e7&pf_rd_i=6563140011" alt="Producto 1">
-                <h3>Producto 1</h3>
-                <p>$19.99</p>
-                <a href="#" class="btn">Comprar</a>
-            </div>
-            <div class="product-card">
-                <img src="product2.jpg" alt="Producto 2">
-                <h3>Producto 2</h3>
-                <p>$29.99</p>
-                <a href="#" class="btn">Comprar</a>
-            </div>
-            <div class="product-card">
-                <img src="product3.jpg" alt="Producto 3">
-                <h3>Producto 3</h3>
-                <p>$39.99</p>
-                <a href="#" class="btn">Comprar</a>
-            </div>
-            <div class="product-card">
-                <img src="product4.jpg" alt="Producto 4">
-                <h3>Producto 4</h3>
-                <p>$49.99</p>
-                <a href="#" class="btn">Comprar</a>
+<!-- Head -->
+<div class="container-fluid">
+    <!-- Portada de la cafetería -->
+    <div class="portada">
+        <div class="overlay">
+            <h1 class="text-center text-white">Mi Cafetería</h1>
+            <!-- Nosotros -->
+            <div class="text-center mt-4">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quis sed, perferendis necessitatibus
+                    asperiores itaque provident placeat dolor repellat atque, cum facere aperiam iste quae deserunt,
+                    natus dicta doloremque omnis.</p>
+                <a routerLink="/nosotros" class="btn btn-light">Mas sobre nosotros</a>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <footer>
-        <p>&copy; 2024 MiTienda. Todos los derechos reservados.</p>
-    </footer>
+<!-- carrousel -->
+<div class="container mt-4">
+    <!-- Carrusel de productos -->
+    <div id="productCarousel" class="carousel slide">
+        <div class="carousel-inner">
+            <!-- Producto con id 1 -->
+            <div *ngIf="productoId1" class="carousel-item active">
+                <img [src]="productoId1.imagen" alt="Imagen de producto 1" class="d-block w-100">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>{{ productoId1.producto }}</h2>                    
+                    <p>{{ productoId1.descripcion }}</p>
+                </div>
+            </div>
+            <!-- Producto con id 2 -->
+            <div *ngIf="productoId2" class="carousel-item">
+                <img [src]="productoId2.imagen" alt="Imagen de producto 2" class="d-block w-100">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>{{ productoId2.producto }}</h2> 
+                    <p>{{ productoId2.descripcion }}</p>
+                </div>
+            </div>
+            <!-- Producto con id 3 -->
+            <div *ngIf="productoId3" class="carousel-item">
+                <img [src]="productoId3.imagen" alt="Imagen de producto 3" class="d-block w-100">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>{{ productoId3.producto }}</h2> 
+                    <p>{{ productoId3.descripcion }}</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Botón para ver más productos -->
+    <div class="text-center mt-4">
+        <a routerLink="/productos" class="btn btn-primary">Ver más productos</a>
+    </div>
+</div>
+
+<!-- Componente Contactos -->
+<div class="container mt-4">
+    <app-contactos></app-contactos>
+</div>
+
+<!-- Footer -->
+<footer class="footer bg-dark text-white text-center py-4">
+    <div class="container">
+        <!-- Redes Sociales -->
+        <div class="social-icons mb-3">
+            <a href="https://facebook.com" target="_blank" class="text-white mx-2">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" class="text-white mx-2">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="text-white mx-2">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="text-white mx-2">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+        <!-- Enlace a Términos y Condiciones -->
+        <div>
+            <a routerLink="/terminos" class="text-white">Términos y Condiciones</a>
+        </div>
+    </div>
+</footer>
